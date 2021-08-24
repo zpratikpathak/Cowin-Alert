@@ -30,7 +30,7 @@ Use command
 
 
 ## HEADLESS/GUI
-You can turn ON/OFF Headless/GUI of chrome by commenting/uncommenting `line 10` of tracker.py
+You can turn ON/OFF Headless/GUI mode of chrome by commenting/uncommenting `line 10` of `tracker.py`
 
 ## TO DO
 - Add various deployment Compatability
