@@ -29,7 +29,7 @@ def main():
             time.sleep(10)
             browser.find_element_by_xpath("//*[@id=\"mat-tab-content-0-0\"]/div/div[1]/div/div/button").click()   
             time.sleep(10)
-            browser.find_element_by_xpath("//*[@id=\"c7\"]").click()
+            browser.find_element_by_xpath("//*[@id=\"Search-Vaccination-Center\"]/appointment-table/div/div/div/div/div/div/div/div/div/div/div[2]/form/div/div/div[2]/div[3]/ul/li[2]/div/div[2]/label").click()
             time.sleep(10)
             try:
                 browser.find_element_by_xpath("//*[@id=\"Search-Vaccination-Center\"]/appointment-table/div/div/div/div/div/div/div/div/div/div/div[2]/form/div/div/div[5]/div[3]/div/div/div[1]/p")
@@ -39,6 +39,7 @@ def main():
                 #sendemail()
                 sendNotification()
         browser.quit()
+        print("Vaccine Not Available. Checing Again in 1 hr.")
         time.sleep(3600)
 
 
