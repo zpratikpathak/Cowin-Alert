@@ -1,9 +1,9 @@
+from sendemail import sendNotification
+import time
 from selenium import webdriver
 import os
 from dotenv import load_dotenv
 load_dotenv()
-import time
-from sendemail import sendNotification
 
 options = webdriver.ChromeOptions()
 options.add_argument("--disable-infobars")
@@ -17,7 +17,7 @@ options.add_argument(
 
 def main():
     pincode = list(map(int, os.getenv("PINCODES").split(" ")))
-    
+
     while True:
         browser = webdriver.Chrome(options=options)
 
@@ -27,16 +27,19 @@ def main():
             browser.find_element_by_id('mat-input-0').send_keys(pin)
             browser.implicitly_wait(10)
             time.sleep(10)
-            browser.find_element_by_xpath("//*[@id=\"mat-tab-content-0-0\"]/div/div[1]/div/div/button").click()   
+            browser.find_element_by_xpath(
+                "//*[@id=\"mat-tab-content-0-0\"]/div/div[1]/div/div/button").click()
             time.sleep(10)
-            browser.find_element_by_xpath("//*[@id=\"Search-Vaccination-Center\"]/appointment-table/div/div/div/div/div/div/div/div/div/div/div[2]/form/div/div/div[2]/div[3]/ul/li[2]/div/div[2]/label").click()
+            browser.find_element_by_xpath(
+                "//*[@id=\"Search-Vaccination-Center\"]/appointment-table/div/div/div/div/div/div/div/div/div/div/div[2]/form/div/div/div[2]/div[3]/ul/li[2]/div/div[2]/label").click()
             time.sleep(10)
             try:
-                browser.find_element_by_xpath("//*[@id=\"Search-Vaccination-Center\"]/appointment-table/div/div/div/div/div/div/div/div/div/div/div[2]/form/div/div/div[5]/div[3]/div/div/div[1]/p")
-                #No slots
-                print("No shots")
+                browser.find_element_by_xpath(
+                    "//*[@id=\"Search-Vaccination-Center\"]/appointment-table/div/div/div/div/div/div/div/div/div/div/div[2]/form/div/div/div[5]/div[3]/div/div/div[1]/p")
+                # No slots
+                print("No shots available at Pincode:", pin)
             except:
-                #sendemail()
+                # sendemail()
                 sendNotification()
         browser.quit()
         print("Vaccine Not Available. Checing Again in 1 hr.")
