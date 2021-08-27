@@ -43,7 +43,7 @@ def main():
                 sendNotification()
         browser.quit()
         print("Vaccine Not Available. Checing Again in 1 hr.")
-        time.sleep(3600)
+        time.sleep(3600) #Enter time(in sec) in which script will re-run
 
 
 if __name__ == "__main__":

@@ -1,6 +1,12 @@
 ## Requirements
 - Python 3.8.x
 - Chrome Browser 92.0.x.x
+
+## Features
+- Imitate Human Behaviour
+- CoWin API Independent
+- No API restriction
+
 ## Installation
 Install Dependecies using command 👇
 
@@ -23,14 +29,23 @@ receiverEmail =
 ### Note:
 + If you get error `Wrong Username and password` then turn ON "Less Secure" option of your google account by visiting here https://myaccount.google.com/lesssecureapps
 + If you still get error go to https://g.co/allowaccess and autheticate yourself then try again
+
+
 ## How to run?
 Use command
 
 ```python tracker .py```
 
-
 ## HEADLESS/GUI
 You can turn ON/OFF Headless/GUI mode of chrome by commenting/uncommenting `line 10` of `tracker.py`
+
+## How to Stop?
+Just close the script.
+
+## How to change frequency of email?
+Edit `line 46` of `tracker.py`
+Note: give input in sec eg. 1hours = 3600 sec
+
 
 ## TO DO
 - Add various deployment Compatability
